@@ -32,7 +32,7 @@ const Container = ({
           flex: flex && flex,
           flexDirection: direction && direction,
           justifyContent: justify && justify,
-          alignItems: justify && align,
+          alignItems: align && align,
           backgroundColor: bg && bg,
           //Margins and paddings
           padding: p & p,
