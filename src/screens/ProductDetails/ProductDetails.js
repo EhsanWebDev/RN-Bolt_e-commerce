@@ -9,7 +9,14 @@ import Header from "../../components/Header";
 import SizeButton from "../../components/SizeButton";
 
 export default class ProductDetails extends Component {
+  state = {
+    text:
+      "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.",
+    showMore: true,
+    limit: 120,
+  };
   render() {
+    const { text, limit, showMore } = this.state;
     return (
       <Container flex={1}>
         <ScrollView style={{ flex: 1 }}>
@@ -78,11 +85,20 @@ export default class ProductDetails extends Component {
 
           <Container flex={1} ph={sizes.p_sm * 2} mv={sizes.p_sm}>
             <GeneralText>Description</GeneralText>
-            <GeneralText size={14} color={colors.gray}>
-              A wonderful serenity has taken possession of my entire soul, like
-              these sweet mornings of spring which I enjoy with my whole heart.
-              I am alone, and feel the charm of existence in this spot, which
-              was created for the bliss of souls like mine.
+            <GeneralText size={14} color={colors.gray} styles={{ flex: 1 }}>
+              {text.substr(0, limit)}{" "}
+              {showMore && (
+                <TouchableOpacity
+                  style={{ paddingTop: 4, height: 22 }}
+                  onPress={() =>
+                    this.setState({ limit: text.length, showMore: false })
+                  }
+                >
+                  <GeneralText size={16} bold color={colors.secondary}>
+                    Show More
+                  </GeneralText>
+                </TouchableOpacity>
+              )}
             </GeneralText>
           </Container>
           <Container
@@ -109,9 +125,8 @@ export default class ProductDetails extends Component {
             direction="row"
             justify="space-evenly"
             align="center"
-            mv={sizes.m_sm}
             ph={sizes.p_sm * 4}
-            mv={sizes.m_sm}
+            mv={sizes.m_sm * 3}
           >
             <SizeButton title="S" />
             <SizeButton title="M" contained />
@@ -119,7 +134,21 @@ export default class ProductDetails extends Component {
             <SizeButton title="XXL" noBg />
           </Container>
         </ScrollView>
-        <Button label="BUY NOW" width={layout.width} />
+        <Container direction="row">
+          <Button
+            label="Add to cart"
+            Colors={[colors.cart_btn, colors.cart_btn]}
+            width={layout.width / 2}
+            text_color={colors.dark}
+            br={0}
+          />
+          <Button
+            label="BUY NOW"
+            Colors={[colors.secondary, colors.secondary]}
+            width={layout.width / 2}
+            br={0}
+          />
+        </Container>
       </Container>
     );
   }

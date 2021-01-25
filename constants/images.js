@@ -15,4 +15,7 @@ export const images = {
 
   // Kids
   kid1: require("../assets/category/images/kids/kids.png"),
+
+  // Icons
+  cancel: require("../assets/icons/Cencel.png"),
 };

@@ -15,6 +15,8 @@ export const colors = {
   p: "#2A2A2A",
   light_gray: "#F3F3F3",
 
+  cart_btn: "#E1E1E1",
+
   // Gradient
   color1: "#667EEA",
   color2: "#64B6FF",

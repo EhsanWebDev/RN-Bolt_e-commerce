@@ -62,3 +62,6 @@ const Container = ({
 };
 
 export default Container;
+
+// Notes
+//Give bg color to apply shadows

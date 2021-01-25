@@ -12,6 +12,7 @@ import SignUp from "./src/screens/Auth/Signup";
 import Home from "./src/screens/Home/Home";
 import CategoryScreen from "./src/screens/Category/CategoryScreen";
 import ProductDetails from "./src/screens/ProductDetails/ProductDetails";
+import Cart from "./src/screens/Cart/Cart";
 
 export default function App() {
   const [loaded, setLoaded] = useState(null);
@@ -41,7 +42,8 @@ export default function App() {
       {/* <SignUp /> */}
       {/* <Home /> */}
       {/* <CategoryScreen /> */}
-      <ProductDetails />
+      {/* <ProductDetails /> */}
+      <Cart />
     </Container>
   );
 }

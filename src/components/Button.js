@@ -7,23 +7,29 @@ import GeneralText from "./GeneralText";
 
 // import { Container } from './styles';
 
-const Button = ({ width, label = "Log in" }) => {
+const Button = ({
+  width,
+  label = "Log in",
+  Colors = [colors.color1, colors.color2],
+  br = 8,
+  text_color = colors.white,
+}) => {
   return (
     <Container>
       <LinearGradient
         start={[0.0, 0.5]}
         end={[1.0, 0.5]}
         locations={[0.0, 1.0]}
-        colors={[colors.color1, colors.color2]}
+        colors={Colors}
         style={{
           width: width ? width : layout.width * 0.75,
           elevation: 12,
-          borderRadius: 8,
+          borderRadius: br,
           alignSelf: "center",
         }}
       >
         <TouchableOpacity style={{ padding: 14, elevation: 12 }}>
-          <GeneralText bold color={colors.white} center size={sizes.font_18}>
+          <GeneralText bold color={text_color} center size={sizes.font_18}>
             {label}
           </GeneralText>
         </TouchableOpacity>
